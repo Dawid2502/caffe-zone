@@ -1,0 +1,675 @@
+@import "./colors";
+@import "./mixins";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $bg-light-color;
+  font-family: "Kanit", sans-serif;
+}
+
+nav,
+header,
+.section-title,
+.baner {
+  font-family: "Rubik Burned", system-ui;
+}
+
+.section-title {
+  position: relative;
+  padding: 4rem;
+  font-size: 3.6rem;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.menu-bars-btn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  border: none;
+  background: none;
+  color: white;
+  z-index: 10;
+  cursor: pointer;
+  .fa-bars,
+  .fa-xmark {
+    font-size: 3.6rem;
+  }
+  .fa-xmark {
+    color: black;
+  }
+}
+
+.active {
+  display: flex;
+}
+.icon-hide {
+  display: none;
+}
+.icon-active {
+  display: block;
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: $bg-light-color;
+  z-index: 1;
+  .site-name {
+    .site-title {
+      font-size: 4.6rem;
+      font-weight: bold;
+    }
+  }
+  .nav-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .item {
+      padding: 2.5rem 2rem;
+      color: $black-color;
+      font-size: 2.8rem;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .item:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      transform: scale(1.1);
+    }
+  }
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 60vh;
+  background-image: url(../image/coffee-819362_1920.jpg);
+  background-position: center;
+  background-size: cover;
+  z-index: 0;
+  h1 {
+    color: white;
+    margin-left: 1rem;
+    font-size: 3.6rem;
+  }
+}
+
+header::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  content: "";
+  z-index: -1;
+}
+
+main {
+  font-family: "Kanit", sans-serif;
+  .aboutus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    @include section-bg;
+    .aboutus-description {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 10rem;
+      // width: 120rem;
+      // max-width: 120rem;
+      background-color: white;
+      img {
+        margin-top: 3rem;
+        width: 32rem;
+      }
+      p {
+        padding: 1rem 2rem;
+        font-family: "Kanit", sans-serif;
+        font-size: 1.2rem;
+      }
+    }
+  }
+  .baner {
+    position: relative;
+    height: 40rem;
+    background-image: url(../image/brooke-cagle-8jp-6SjVibM-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+    z-index: 0;
+    p {
+      padding: 1rem 2rem;
+      color: white;
+      font-size: 2.2rem;
+    }
+    p:first-of-type {
+      padding-top: 4rem;
+    }
+    img {
+      position: absolute;
+      right: 2rem;
+      bottom: 2rem;
+      width: 17rem;
+    }
+  }
+  .baner::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    content: "";
+    z-index: -1;
+  }
+  .menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    @include section-bg;
+    .menu-body {
+      margin-bottom: 7rem;
+      height: 60rem;
+      border-radius: 1.5rem;
+      .menu-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        .category-btn {
+          padding: 2rem;
+          width: 50%;
+          background-color: rgb(197, 195, 195);
+          border: none;
+          font-size: 1.4rem;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        .category-btn:first-of-type {
+          border-top-left-radius: 1.5rem;
+        }
+        .category-btn:nth-child(2) {
+          border-top-right-radius: 1.5rem;
+        }
+        .category-btn:nth-child(odd) {
+          border-right: 2px solid rgba(90, 90, 90, 0.5);
+        }
+      }
+      .menu-list {
+        height: 54.5rem;
+        max-height: 54.5rem;
+        background-color: white;
+        font-family: "Kanit", sans-serif;
+        overflow-y: auto;
+        border-bottom-left-radius: 1.5rem;
+        border-bottom-right-radius: 1.5rem;
+        table {
+          width: 100%;
+          tbody {
+            tr {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin: 2rem;
+              border-bottom: 2px solid rgba(224, 222, 222, 0.5);
+              font-size: 1.8rem;
+            }
+            .price {
+              span {
+                color: rgb(212, 211, 211);
+                padding-right: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .offers {
+    background-image: url(../image/coffee-2565441_1920.jpg);
+    background-size: cover;
+    .offers-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .offer-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        // width: 100rem;
+        // max-width: 100rem;
+        text-align: center;
+        margin: 2rem;
+        border: 2px solid black;
+        border-radius: 2rem;
+        img {
+          width: 100%;
+          height: 20rem;
+          border-top-left-radius: 2rem;
+          border-top-right-radius: 2rem;
+          object-fit: cover;
+        }
+        .desc-box {
+          padding: 2rem;
+          background-color: white;
+          border-bottom-left-radius: 2rem;
+          border-bottom-right-radius: 2rem;
+          h3 {
+            padding: 1rem;
+            font-size: 2.4rem;
+          }
+          p {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+  .team {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    @include section-bg;
+    .team-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      .team-member-box {
+        margin: 2rem;
+        width: 30rem;
+        background-color: white;
+        border-radius: 1.5rem;
+        // box-shadow: 0 0 3rem black;
+        animation: grow-shadow 5s infinite;
+        font-family: "Kanit", sans-serif;
+        img {
+          width: 100%;
+          height: 20rem;
+          border-top-right-radius: 1.5rem;
+          border-top-left-radius: 1.5rem;
+          object-fit: cover;
+        }
+        .member-name {
+          padding: 1rem 1rem 0 1rem;
+          font-size: 1.8rem;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+        .profession {
+          padding-left: 1rem;
+          color: darkgray;
+          font-size: 1.4rem;
+        }
+        .description {
+          padding: 1rem;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+
+  @keyframes grow-shadow {
+    from {
+      box-shadow: 0 0 0 black;
+    }
+    to {
+      box-shadow: 0 0 3rem black;
+    }
+  }
+
+  .contact {
+    background-color: #4d4855;
+    background-image: linear-gradient(147deg, #4d4855 0%, #212020 74%);
+
+    .section-title {
+      color: white;
+    }
+    .contact-container {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-direction: column-reverse;
+      iframe {
+        margin: 3rem;
+        width: 32rem;
+      }
+      //   width: 100%;
+      .contact-address {
+        color: white;
+        .contact-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          text-align: center;
+          .contact-item {
+            margin: 1rem;
+            font-size: 1.8rem;
+          }
+        }
+        .social-media {
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          width: 100%;
+          margin: 2rem 0;
+          font-size: 4.8rem;
+          i {
+            transition: transform 0.5s;
+            cursor: pointer;
+          }
+          i:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  height: 50px;
+  background-color: #333;
+
+  p {
+    color: #ddd;
+    text-align: center;
+    font-size: 20px;
+    line-height: 50px;
+  }
+}
+
+@media (min-width: 576px) {
+  main {
+    .aboutus {
+      .aboutus-description {
+        img {
+          width: 40rem;
+        }
+        p {
+          font-size: 1.4rem;
+        }
+      }
+    }
+    .baner {
+      position: relative;
+      height: 40rem;
+      background-image: url(../image/brooke-cagle-8jp-6SjVibM-unsplash.jpg);
+      background-position: center;
+      background-size: cover;
+      z-index: 0;
+      p {
+        padding: 1rem 2rem;
+        color: white;
+        font-size: 2.8rem;
+      }
+      p:first-of-type {
+        padding-top: 4rem;
+      }
+      img {
+        position: absolute;
+        right: 2rem;
+        bottom: 2rem;
+        width: 22rem;
+      }
+    }
+    .contact {
+      .contact-container {
+        iframe {
+          width: 52rem;
+        }
+        .contact-address {
+          color: white;
+          .contact-info {
+            .contact-item {
+              font-size: 2.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .menu-bars-btn {
+    display: none;
+  }
+  nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 6rem;
+    background-color: $bg-light-color;
+    z-index: 1;
+    .site-name {
+      .site-title {
+        font-size: 2.6rem;
+        font-weight: bold;
+      }
+    }
+    .nav-items {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      .item {
+        padding: 2.5rem 2rem;
+        width: 12rem;
+        color: $black-color;
+        font-size: 1.6rem;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+      .item:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        transform: scale(1.1);
+      }
+    }
+  }
+  header {
+    h1 {
+      font-size: 4.8rem;
+    }
+  }
+  main {
+    .aboutus {
+      .aboutus-description {
+        width: 70rem;
+        img {
+          height: 30rem;
+        }
+      }
+    }
+    .baner {
+      p {
+        font-size: 3.2rem;
+      }
+      p:first-of-type {
+        padding-top: 3rem;
+      }
+      img {
+        width: 26rem;
+      }
+    }
+    .menu {
+      .menu-body {
+        .menu-nav {
+          .category-btn {
+            width: 15rem;
+            border-right: 2px solid rgba(90, 90, 90, 0.5);
+            cursor: pointer;
+          }
+          .category-btn:last-of-type {
+            border-right: none;
+            border-top-right-radius: 1.5rem;
+          }
+
+          .category-btn:nth-child(2) {
+            border-top-right-radius: 0;
+          }
+        }
+      }
+    }
+    .offers {
+      .offers-container {
+        .offer-box {
+          flex-direction: row;
+          width: 74rem;
+          max-width: 74rem;
+          img {
+            width: 30rem;
+            height: 27.2rem;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 2rem;
+          }
+          .desc-box {
+            border-top-right-radius: 2rem;
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+    }
+    .contact {
+      .contact-container {
+        flex-direction: row;
+        .contact-address {
+          .contact-info {
+            .contact-item {
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  main {
+    .aboutus {
+      .aboutus-description {
+        flex-direction: row;
+        width: 96rem;
+        max-width: 120rem;
+        img {
+          margin-top: 0;
+          margin-left: 3rem;
+          width: 32rem;
+        }
+      }
+    }
+    .baner {
+      p {
+        font-size: 3.2rem;
+      }
+      img {
+        width: 24rem;
+      }
+    }
+    .offers {
+      .offers-container {
+        .offer-box {
+          width: 90rem;
+          max-width: 90rem;
+          img {
+            width: 30rem;
+            height: 22.4rem;
+          }
+          .desc-box {
+            height: 22.4rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  main {
+    header {
+      h1 {
+        font-size: 5.6rem;
+      }
+    }
+    .aboutus {
+      .aboutus-description {
+        width: 120rem;
+        max-width: 120rem;
+        img {
+          margin-top: 0;
+          margin-left: 0;
+          width: 40rem;
+        }
+      }
+    }
+    .baner {
+      p {
+        padding: 1rem 3rem;
+        width: 100rem;
+        font-size: 4.3rem;
+      }
+      img {
+        width: 28rem;
+      }
+    }
+    .offers {
+      .offers-container {
+        .offer-box {
+          width: 110rem;
+          max-width: 110rem;
+          img {
+            width: 30rem;
+            height: 22.4rem;
+          }
+          .desc-box {
+            height: 22.4rem;
+          }
+        }
+      }
+    }
+    .team {
+      .team-container {
+        width: 120rem;
+      }
+    }
+  }
+}
